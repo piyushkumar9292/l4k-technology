@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L4K TECHNOLOGY - From Idea To Impact</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #ffffff;
+  --text: #0a0a0a;
+  --text-muted: #6b7280;
+  --glass: rgba(255,255,255,0.6);
+  --glass-border: rgba(255,255,255,0.2);
+  --blue: #2563eb;
+  --gold: #f59e0b;
+  --shadow: 0 20px 50px rgba(0,0,0,0.08);
+  --radius: 24px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: default;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:#f1f1f1}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#2563eb,#3b82f6);border-radius:10px}
+
+/* Premium Cursor */
+
+/* Animated Gradient Blobs */
+.bg-blobs{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.4;animation:float 20s infinite}
+.blob1{width:400px;height:400px;background:radial-gradient(circle,#2563eb,#60a5fa);top:-100px;left:-100px;animation-delay:0s}
+.blob2{width:500px;height:500px;background:radial-gradient(circle,#a78bfa,#c084fc);bottom:-150px;right:-150px;animation-delay:5s}
+@keyframes float{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(50px,50px) scale(1.1)}}
+
+/* Glassmorphism */
+.glass{
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Section Base */
+section{padding:120px 5%;max-width:1400px;margin:0 auto;opacity:0;transform:translateY(40px);transition:all 0.8s ease}
+section.visible{opacity:1;transform:translateY(0)}
+
+/* SECTION 1 HERO */
+.hero{text-align:center;padding-top:180px}
+.hero h1{font-size: clamp(2.5rem, 6vw, 5rem);font-weight:800;letter-spacing:-2px;margin-bottom:20px}
+.hero p{font-size:1.25rem;color:var(--text-muted);margin-bottom:40px}
+
+/* SECTION 2 PRICING */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px;align-items:start}
+.card{
+  padding:40px;position:relative;transition:all 0.4s cubic-bezier(.2,.8,.2,1)
+}
+.card:hover{transform:translateY(-12px) scale(1.02);box-shadow:0 30px 80px rgba(0,0,0,0.12)}
+.card.popular{transform:scale(1.05);border:2px solid var(--blue);box-shadow:0 0 40px rgba(37,99,235,0.2)}
+.card.popular:hover{transform:scale(1.08) translateY(-12px)}
+.ribbon{position:absolute;top:20px;right:-10px;background:var(--blue);color:#fff;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:600}
+.card h3{font-size:1.5rem;margin-bottom:10px}
+.price{font-size:3rem;font-weight:800;margin:20px 0}
+.price span{font-size:1rem;font-weight:400;color:var(--text-muted)}
+.features{list-style:none;margin:30px 0}
+.features li{padding:10px 0;display:flex;align-items:center;gap:10px;color:var(--text-muted)}
+.features li::before{content:"✔";color:var(--blue);font-weight:700}
+
+/* Buttons with Ripple */
+.btn{
+  width:100%;padding:16px;border:none;border-radius:14px;font-weight:600;font-size:1rem;
+  background:var(--text);color:#fff;cursor:pointer;position:relative;overflow:hidden;transition:all 0.3s
+}
+.btn:hover{background:var(--blue);transform:scale(1.02)}
+.btn.gold{background:linear-gradient(135deg,var(--gold),#fbbf24);color:#000}
+.btn.gold:hover{box-shadow:0 0 30px rgba(245,158,11,0.4)}
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,0.4);transform:scale(0);animation:ripple 0.6s linear}
+@keyframes ripple{to{transform:scale(4);opacity:0}}
+
+/* SECTION 3 SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:24px}
+.service-card{padding:30px;text-align:center;transition:all 0.4s}
+.service-card:hover{transform:translateY(-8px)}
+
+/* SECTION 4 MAINTENANCE */
+.maintenance{display:flex;gap:24px;flex-wrap:wrap;justify-content:center}
+.maint-card{flex:1 1 300px;padding:30px}
+
+/* SECTION 5 TIMELINE */
+.timeline{position:relative;max-width:800px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:50%;top:0;width:2px;height:100%;background:linear-gradient(var(--blue),transparent);transform:translateX(-50%)}
+.step{position:relative;padding:20px 0;width:50%}
+.step:nth-child(odd){left:0;text-align:right;padding-right:40px}
+.step:nth-child(even){left:50%;padding-left:40px}
+.step-dot{position:absolute;top:30px;width:16px;height:16px;background:var(--blue);border-radius:50%;box-shadow:0 0 20px var(--blue)}
+.step:nth-child(odd) .step-dot{right:-8px}
+.step:nth-child(even) .step-dot{left:-8px}
+
+/* SECTION 6 WHY US */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.why-card{padding:30px;text-align:center}
+
+/* SECTION 7 FAQ */
+.faq-item{margin-bottom:16px;padding:20px;cursor:pointer}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s}
+.faq-item.active .faq-answer{max-height:200px;margin-top:10px}
+
+/* SECTION 8 CTA */
+.cta{text-align:center;padding:100px 40px;background:linear-gradient(135deg,#0a0a0a,#1f2937);color:#fff;border-radius:40px}
+.cta h2{font-size:3rem;margin-bottom:16px}
+.cta .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+.btn-outline{background:transparent;border:2px solid #fff;color:#fff}
+
+/* Responsive */
+@media(max-width:768px){
+  .card.popular{transform:scale(1)}
+  .timeline::before{left:20px}
+  .step{width:100%;left:0 !important;padding-left:60px !important;text-align:left !important}
+  .step-dot{left:12px !important}
+}
+
+
+/* GLOBAL BACK BUTTON */
+.global-back-btn{
+  position:fixed; /* yehi magic hai */
+  top:24px;
+  left:32px;
+  z-index:99999; /* sabse upar rahega */
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--line);
+  border-radius:var(--radius-full);
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  transition:all .3s var(--ease);
+  box-shadow:var(--shadow-md);
+}
+.global-back-btn:hover{
+  transform:translateX(-4px);
+  border-color:var(--accent);
+  color:var(--accent);
+}
+@media (max-width:600px){
+  .global-back-btn{ top:16px; left:16px; padding:10px 16px; }
+}
+
+</style>
+</head>
+<body>
+
+
+  <!-- YE BUTTON HAR PAGE ME DAAL DO -->
+  <a href="index.html" class="global-back-btn">← Back to Home</a>
+
+
+
+<div class="cursor"></div>
+<div class="bg-blobs"><div class="blob blob1"></div><div class="blob blob2"></div></div>
+
+<!-- SECTION 1 HERO -->
+<section class="hero">
+  <h1>Simple Transparent Pricing.</h1>
+  <p>Choose the perfect plan to grow your business with L4K TECHNOLOGY.</p>
+</section>
+
+<!-- SECTION 2 PRICING -->
+<section>
+  <div class="pricing-grid">
+    <div class="card glass">
+      <h3>Starter</h3>
+      <div class="price">₹14,999<span>/project</span></div>
+      <p style="color:var(--text-muted)">Perfect For<br><b>Small Businesses</b></p>
+      <ul class="features">
+        <li>1-2 Pages Website</li><li>Responsive Design</li><li>Contact Form</li><li>WhatsApp Integration</li>
+        <li>Google Maps</li><li>Basic SEO</li><li>Mobile Friendly</li><li>6 month maintenance</li><li>Delivery in 1-2 Days</li> <li>Price is negotiable</li>
+      </ul>
+      <a href="contact.html"><button class="btn">Get Started</button></a>
+    </div>
+
+    <div class="card glass popular">
+      <div class="ribbon">Most Popular</div>
+      <h3>Business</h3>
+      <div class="price">₹25,999<span>/project</span></div>
+      <p style="color:var(--text-muted)">Perfect For<br><b>Growing Businesses</b></p>
+      <ul class="features">
+        <li>Up to 7 Pages</li><li>Premium UI Design</li><li>Custom Animations</li><li>SEO Optimization</li>
+        <li>Speed Optimization</li><li>CMS Integration</li><li>Google Business Setup</li><li>1 year maintenance</li><li>Delivery 3-4 Days</li><li>Price is negotiable</li>
+      </ul>
+     <a href="contact.html" ><button class="btn">Start Business</button></a>
+    </div>
+
+    <div class="card glass">
+      <h3>Premium</h3>
+      <div class="price">₹59,999+<span>/project</span></div>
+      <p style="color:var(--text-muted)">Perfect For<br><b>Brands & Startups</b></p>
+      <ul class="features">
+        <li>Unlimited Pages</li><li>Custom Design</li><li>Admin Dashboard</li><li>AI Chatbot</li>
+        <li>API Integration</li><li>Booking System</li><li>Payment Gateway</li><li>2 year maintenance</li><li>Delivery in 7-8 Days</li><li>Price is negotiable</li>
+      </ul>
+      <a href="contact.html"><button class="btn gold">Let's Build</button></a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 SERVICES -->
+<section>
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:60px">Additional Services</h2>
+  <div class="services-grid">
+    <div class="card glass service-card"><h4>Landing Page</h4><p>₹4,999</p></div>
+    <div class="card glass service-card"><h4>Website Redesign</h4><p>₹8,999</p></div>
+    <div class="card glass service-card"><h4>SEO Setup</h4><p>₹4,999</p></div>
+    <div class="card glass service-card"><h4>Speed Optimization</h4><p>₹2,999</p></div>
+    <div class="card glass service-card"><h4>Google Business Profile</h4><p>₹2,499</p></div>
+    <div class="card glass service-card"><h4>Logo Design</h4><p>₹2,999</p></div>
+    <div class="card glass service-card"><h4>Business Email</h4><p>₹1,999</p></div>
+    <div class="card glass service-card"><h4>Domain & Hosting Setup</h4><p>₹2,000–3,000</p></div>
+  </div>
+</section>
+
+<!-- SECTION 4 MAINTENANCE -->
+<section>
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:60px">Maintenance Plans</h2>
+  <div class="maintenance">
+    <div class="card glass maint-card"><h3>Basic</h3><div class="price">₹1,999<span>/month</span></div><ul class="features"><li>Backups</li><li>Security</li><li>Minor Changes</li></ul></div>
+    <div class="card glass maint-card"><h3>Standard</h3><div class="price">₹3,999<span>/month</span></div><ul class="features"><li>Everything in Basic</li><li>SEO Check</li><li>Performance Monitoring</li><li>Priority Support</li></ul></div>
+    <div class="card glass maint-card"><h3>Premium</h3><div class="price">₹7,999<span>/month</span></div><ul class="features"><li>Everything</li><li>Unlimited Minor Changes</li><li>Dedicated Support</li><li>24×7 Priority</li></ul></div>
+  </div>
+</section>
+
+<!-- SECTION 5 PAYMENT -->
+<section>
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:60px">Payment Process</h2>
+  <div class="timeline">
+    <div class="step"><div class="step-dot"></div><h4>Step 1: 20% Advance</h4></div>
+    <div class="step"><div class="step-dot"></div><h4>Step 2: Development Begins</h4></div>
+    <div class="step"><div class="step-dot"></div><h4>Step 3: Review & Feedback</h4></div>
+    <div class="step"><div class="step-dot"></div><h4>Step 4: Remaining 80%</h4></div>
+    <div class="step"><div class="step-dot"></div><h4>Step 5: Website Delivered</h4></div>
+  </div>
+</section>
+
+<!-- SECTION 6 WHY US -->
+<section>
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:60px">Why Choose L4K</h2>
+  <div class="why-grid">
+    <div class="card glass why-card"><h4>Premium Design</h4></div>
+    <div class="card glass why-card"><h4>Fast Delivery</h4></div>
+    <div class="card glass why-card"><h4>SEO Friendly</h4></div>
+    <div class="card glass why-card"><h4>Modern Technology</h4></div>
+    <div class="card glass why-card"><h4>Lifetime Guidance</h4></div>
+    <div class="card glass why-card"><h4>Business Growth Focus</h4></div>
+    <div class="card glass why-card"><h4>AI Ready</h4></div>
+  </div>
+</section>
+
+<!-- SECTION 7 FAQ -->
+<section>
+  <h2 style="text-align:center;font-size:2.5rem;margin-bottom:60px">FAQ</h2>
+  <div class="faq">
+    <div class="card glass faq-item"><h4>Can I upgrade later?</h4><div class="faq-answer"><p>Yes, you can upgrade your plan anytime as your business grows.</p></div></div>
+    <div class="card glass faq-item"><h4>Do you provide hosting?</h4><div class="faq-answer"><p>We help with setup. Domain/hosting cost is Free.</p></div></div>
+    <div class="card glass faq-item"><h4>Will website be mobile friendly?</h4><div class="faq-answer"><p>100% responsive on all devices. Mobile-first approach.</p></div></div>
+    <div class="card glass faq-item"><h4>How long does development take?</h4><div class="faq-answer"><p>5 to 12 days depending on your chosen plan and requirements.</p></div></div>
+    <div class="card glass faq-item"><h4>Do you provide support?</h4><div class="faq-answer"><p>Yes, 7 to 90 days support included based on the plan.</p></div></div>
+  </div>
+</section>
+
+<!-- SECTION 8 CTA -->
+<section>
+  <div class="cta">
+    <h2>Let's Build Something Amazing Together.</h2>
+    <p>From Idea To Impact.</p>
+    <div class="btns">
+     <a href="contact.html"> <button class="btn">Start Your Project</button></a>
+     
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll Reveal
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})
+},{threshold:0.1})
+sections.forEach(s=>observer.observe(s))
+
+// FAQ Accordion
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.addEventListener('click',()=>item.classList.toggle('active'))
+})
+
+// Button Ripple
+document.querySelectorAll('.btn').forEach(btn=>{
+  btn.addEventListener('click',function(e){
+    const ripple = document.createElement('span');
+    ripple.className='ripple';
+    ripple.style.left=e.clientX - this.offsetLeft+'px';
+    ripple.style.top=e.clientY - this.offsetTop+'px';
+    this.appendChild(ripple);
+    setTimeout(()=>ripple.remove(),600)
+  })
+})
+
+// Premium Cursor
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+  cursor.style.left=e.clientX+'px';
+  cursor.style.top=e.clientY+'px';
+})
+document.querySelectorAll('button, .card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>cursor.style.transform='scale(2)')
+  el.addEventListener('mouseleave',()=>cursor.style.transform='scale(1)')
+})
+</script>
+</body>
+</html>

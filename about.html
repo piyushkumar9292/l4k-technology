@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - L4K TECHNOLOGY | From Idea To Impact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+<style>
+/* ============================================================
+   L4K TECHNOLOGY — About Page | Matches Home Page 100%
+   ============================================================ */
+:root{
+  --primary:#0F172A; --accent:#2563EB; --accent-2:#38BDF8;
+  --bg:#FFFFFF; --text:#111827; --text-soft:#4B5563; --text-faint:#9CA3AF;
+  --line:#E5E7EB; --surface:#F8FAFC;
+  --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+  --gradient-dark: linear-gradient(180deg, #0F172A 0%, #111C34 100%);
+  --shadow-sm: 0 2px 8px rgba(15,23,42,0.06);
+  --shadow-md: 0 8px 30px rgba(15,23,42,0.08);
+  --shadow-lg: 0 20px 60px rgba(15,23,42,0.12);
+  --shadow-glow: 0 0 0 1px rgba(37,99,235,0.08), 0 20px 50px rgba(37,99,235,0.15);
+  --radius-sm: 10px; --radius-md: 18px; --radius-lg: 28px; --radius-full: 999px;
+  --ease: cubic-bezier(.16,.8,.24,1); --ease-soft: cubic-bezier(.4,0,.2,1);
+  --container: 1220px;
+}
+*,*::before,*::after{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+body{ font-family:'Manrope', sans-serif; color:var(--text); background:var(--bg); -webkit-font-smoothing:antialiased; overflow-x:hidden; cursor:default; }
+img{ max-width:100%; display:block; }
+a{ text-decoration:none; color:inherit; }
+.container{ width:100%; max-width:var(--container); margin:0 auto; padding:0 32px; }
+.section-pad{ padding:140px 0; }
+@media (max-width:960px){ .section-pad{ padding:96px 0; } }
+@media (max-width:600px){ .section-pad{ padding:72px 0; } }
+
+.reveal{ opacity:0; transform:translateY(36px); transition:opacity .9s var(--ease-soft), transform .9s var(--ease-soft); }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:18px; }
+.eyebrow::before{ content:''; width:22px; height:2px; background:var(--gradient-accent); border-radius:2px; }
+.section-head{ max-width:640px; margin:0 auto 64px; text-align:center; }
+.section-head h2{ font-size:clamp(2rem, 4vw, 2.9rem); font-weight:800; letter-spacing:-0.02em; line-height:1.15; margin-bottom:16px; }
+.section-head p{ color:var(--text-soft); font-size:1.05rem; line-height:1.7; }
+
+.btn{ display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:16px 32px; font-size:15px; font-weight:700; border-radius:var(--radius-full); cursor:pointer; transition:transform .45s var(--ease), box-shadow .45s var(--ease); white-space:nowrap; }
+.btn-primary{ background:var(--primary); color:#fff; box-shadow:0 10px 30px rgba(15,23,42,0.18); }
+.btn-primary:hover{ transform:translateY(-3px); }
+.btn-outline{ background:transparent; color:var(--text); border:1.5px solid var(--line); }
+.btn-outline:hover{ border-color:var(--accent); color:var(--accent); transform:translateY(-3px); }
+.btn-light{ background:#fff; color:var(--primary); }
+.btn-light:hover{ transform:translateY(-3px); }
+
+/* SECTION 1: HERO */
+.about-hero{ min-height:100vh; display:flex; align-items:center; position:relative; overflow:hidden; background:var(--gradient-dark); }
+.hero-bg-anim{ position:absolute; inset:0; z-index:0; }
+.hero-bg-anim span{ position:absolute; border-radius:50%; filter:blur(120px); opacity:.25; animation:float 8s ease-in-out infinite; }
+.hero-bg-anim .g1{ width:600px; height:600px; background:var(--accent-2); top:-200px; left:-200px; }
+.hero-bg-anim .g2{ width:500px; height:500px; background:var(--accent); bottom:-200px; right:-200px; animation-delay:2s; }
+@keyframes float{ 0%,100%{transform:translateY(0)} 50%{transform:translateY(-30px)} }
+.about-hero-content{ position:relative; z-index:1; text-align:center; color:#fff; width:100%; }
+.about-hero h1{ font-size:clamp(3rem, 8vw, 5rem); font-weight:800; letter-spacing:-0.03em; line-height:1.05; margin-bottom:20px; }
+.about-hero .subtitle{ font-size:1.5rem; font-weight:700; color:var(--accent-2); margin-bottom:24px; }
+.about-hero p{ font-size:1.15rem; line-height:1.8; color:rgba(255,255,255,0.7); max-width:680px; margin:0 auto 40px; }
+.hero-actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+
+/* SECTION 2: WHO WE ARE */
+.who-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:60px; align-items:center; }
+@media (max-width:900px){ .who-grid{ grid-template-columns:1fr; } }
+.who-text h2{ font-size:clamp(2.2rem, 5vw, 3.2rem); font-weight:800; letter-spacing:-0.02em; margin-bottom:24px; }
+.who-text p{ color:var(--text-soft); font-size:1.05rem; line-height:1.8; margin-bottom:16px; }
+.who-illustration{ aspect-ratio:1; border-radius:var(--radius-lg); background:var(--gradient-accent); display:flex; align-items:center; justify-content:center; font-size:5rem; box-shadow:var(--shadow-glow); }
+
+/* SECTION 3: TIMELINE */
+.timeline{ position:relative; max-width:800px; margin:0 auto; }
+.timeline::before{ content:''; position:absolute; left:50%; top:0; bottom:0; width:2px; background:var(--line); transform:translateX(-50%); }
+.timeline-item{ position:relative; margin:60px 0; opacity:0; transform:translateY(40px); transition:all .8s var(--ease); }
+.timeline-item.in{ opacity:1; transform:translateY(0); }
+.timeline-dot{ position:absolute; left:50%; width:20px; height:20px; background:var(--gradient-accent); border-radius:50%; transform:translateX(-50%); box-shadow:0 0 0 8px var(--surface); }
+.timeline-content{ width:45%; background:#fff; padding:30px; border-radius:var(--radius-md); border:1px solid var(--line); box-shadow:var(--shadow-md); }
+.timeline-item:nth-child(odd) .timeline-content{ margin-left:auto; }
+@media (max-width:768px){ .timeline::before{ left:20px; } .timeline-dot{ left:20px; } .timeline-content{ width:calc(100% - 60px); margin-left:60px !important; } }
+
+/* SECTION 4-5: MISSION VISION */
+.mission-vision{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.glass-card{ background:rgba(255,255,255,0.55); border:1px solid rgba(255,255,255,0.6); box-shadow:var(--shadow-md); backdrop-filter:blur(16px); border-radius:var(--radius-lg); padding:48px; text-align:center; transition:transform .5s var(--ease); }
+.glass-card:hover{ transform:translateY(-8px); }
+@media (max-width:768px){ .mission-vision{ grid-template-columns:1fr; } }
+
+/* SECTION 6: SERVICES */
+.services-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
+@media (max-width:960px){ .services-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:640px){ .services-grid{ grid-template-columns:1fr; } }
+.service-card{ background:#fff; border:1px solid var(--line); border-radius:var(--radius-lg); padding:38px 30px; transition:transform .5s var(--ease), box-shadow .5s var(--ease); }
+.service-card:hover{ transform:translateY(-10px); box-shadow:var(--shadow-glow); }
+
+/* SECTION 7: WHY CHOOSE */
+.why-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+@media (max-width:960px){ .why-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .why-grid{ grid-template-columns:1fr; } }
+.why-card{ padding:28px; background:var(--surface); border-radius:var(--radius-md); border:1px solid var(--line); transition:all .4s var(--ease); text-align:center; }
+.why-card:hover{ transform:translateY(-6px); border-color:var(--accent); background:#fff; }
+
+/* SECTION 11: COUNTERS */
+.counters{ display:grid; grid-template-columns:repeat(5,1fr); gap:40px; text-align:center; }
+.counter-num{ font-size:clamp(2.4rem,5vw,3.4rem); font-weight:800; background:var(--gradient-accent); -webkit-background-clip:text; background-clip:text; color:transparent; }
+@media (max-width:900px){ .counters{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:600px){ .counters{ grid-template-columns:repeat(2,1fr); } }
+
+/* SECTION 13: FAQ */
+.faq{ max-width:800px; margin:0 auto; }
+.faq-item{ border-bottom:1px solid var(--line); padding:24px 0; }
+.faq-q{ font-weight:700; font-size:1.1rem; cursor:pointer; display:flex; justify-content:space-between; align-items:center; }
+.faq-q::after{ content:'+'; font-size:1.5rem; transition:transform .3s ease; }
+.faq-item.active .faq-q::after{ transform:rotate(45deg); }
+.faq-a{ max-height:0; overflow:hidden; transition:max-height .4s var(--ease); color:var(--text-soft); }
+.faq-item.active .faq-a{ max-height:200px; padding-top:16px; }
+
+/* SECTION 14,21: CTA */
+.cta-section{ background:var(--gradient-dark); border-radius:var(--radius-lg); margin:0 32px; padding:100px 40px; text-align:center; position:relative; overflow:hidden; }
+@media (max-width:640px){ .cta-section{ margin:0 16px; padding:70px 24px; } }
+.cta-section h2{ font-size:clamp(2rem,4.5vw,3.2rem); font-weight:800; color:#fff; margin-bottom:20px; }
+.cta-section p{ color:rgba(255,255,255,0.7); max-width:600px; margin:0 auto 30px; }
+
+/* SECTION 15: COMPARISON */
+.compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:30px; }
+.compare-card{ padding:40px; border-radius:var(--radius-lg); border:1px solid var(--line); background:#fff; }
+.compare-card.l4k{ background:rgba(37,99,235,0.05); border-color:var(--accent); box-shadow:var(--shadow-glow); }
+.compare-list{ list-style:none; margin-top:20px; }
+.compare-list li{ padding:10px 0; display:flex; gap:10px; align-items:center; }
+.check{ color:var(--accent); font-weight:800; }
+.cross{ color:#ef4444; }
+@media (max-width:900px){ .compare-grid{ grid-template-columns:1fr; } }
+
+/* SECTION 16: PROMISE */
+.promise-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+.promise-card{ padding:40px 30px; text-align:center; border-radius:var(--radius-lg); border:1px solid var(--line); background:#fff; transition:all .4s var(--ease); }
+.promise-card:hover{ transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+.promise-icon{ font-size:2.5rem; margin-bottom:16px; }
+@media (max-width:960px){ .promise-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .promise-grid{ grid-template-columns:1fr; } }
+
+/* SECTION 17: WHO WE WORK WITH */
+.workwith-grid{ display:grid; grid-template-columns:repeat(6,1fr); gap:16px; }
+.work-card{ padding:20px; text-align:center; background:var(--surface); border-radius:var(--radius-md); border:1px solid var(--line); font-weight:600; transition:all .3s var(--ease); }
+.work-card:hover{ background:var(--gradient-accent); color:#fff; transform:translateY(-4px); }
+@media (max-width:960px){ .workwith-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:600px){ .workwith-grid{ grid-template-columns:repeat(2,1fr); } }
+
+
+
+/* GLOBAL BACK BUTTON */
+.global-back-btn{
+  position:fixed; /* yehi magic hai */
+  top:24px;
+  left:32px;
+  z-index:99999; /* sabse upar rahega */
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 20px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(12px);
+  border:1px solid var(--line);
+  border-radius:var(--radius-full);
+  font-size:14px;
+  font-weight:700;
+  color:var(--text);
+  text-decoration:none;
+  transition:all .3s var(--ease);
+  box-shadow:var(--shadow-md);
+}
+.global-back-btn:hover{
+  transform:translateX(-4px);
+  border-color:var(--accent);
+  color:var(--accent);
+}
+@media (max-width:600px){
+  .global-back-btn{ top:16px; left:16px; padding:10px 16px; }
+}
+
+</style>
+</head>
+<body>
+
+
+  <!-- YE BUTTON HAR PAGE ME DAAL DO -->
+  <a href="index.html" class="global-back-btn">← Back to Home</a>
+
+
+
+
+
+
+<!-- SECTION 1: HERO -->
+<section class="about-hero">
+  <div class="hero-bg-anim"><span class="g1"></span><span class="g2"></span></div>
+  <div class="container about-hero-content">
+    <h1 class="reveal">ABOUT L4K TECHNOLOGY</h1>
+    <p class="subtitle reveal">We don't just build websites.</p>
+    <p class="reveal">We build businesses that grow. L4K TECHNOLOGY was born to solve one problem: Most agencies deliver websites. We deliver growth. We are a team of designers, developers, and strategists obsessed with turning your idea into a digital product that gets customers, revenue, and results.</p>
+    <div class="hero-actions reveal">
+      <a href="service.html" class="btn btn-primary">Our Services</a>
+      <a href="contact.html" class="btn btn-light">Start Your Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: WHO WE ARE -->
+<section class="section-pad">
+  <div class="container who-grid">
+    <div class="who-text reveal">
+      <span class="eyebrow">Who We Are</span>
+      <h2>Link 4 Growth</h2>
+      <p>L4K means "Link 4 Growth". We are the bridge between your business idea and its digital success.</p>
+      <p>We exist because we saw businesses struggle with slow, ugly, and ineffective websites. So we built an agency that treats your website like a business asset, not just a page.</p>
+      <p>From startups in Patna to brands across India, we help you get found, get trusted, and get sales online.</p>
+    </div>
+    <div class="who-illustration reveal"><img src="ChatGPT Image Aug 27, 2026, 11_30_32 PM.png" alt=""></div>
+  </div>
+</section>
+
+<!-- SECTION 3: OUR STORY -->
+<section class="section-pad" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Journey</span>
+      <h2>Our Story</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Idea</h3><p>Started with one idea: Make premium digital solutions affordable for Indian businesses.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Learning</h3><p>Months of mastering UI/UX, performance, and SEO to build world-class products.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>First Client</h3><p>Delivered our first website. That 5-star review changed everything.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Agency</h3><p>L4K TECHNOLOGY officially launched. Focus: Quality over quantity.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Growing Team</h3><p>Built a team of designers, developers, and marketers.</p></div></div>
+      <div class="timeline-item"><div class="timeline-dot"></div><div class="timeline-content"><h3>Future Vision</h3><p>Becoming India's most trusted tech partner for growth-focused businesses.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4-5: MISSION VISION -->
+<section class="section-pad">
+  <div class="container mission-vision">
+    <div class="glass-card reveal">
+      <h2>Our Mission</h2>
+      <p style="color:var(--text-soft); margin-top:16px; line-height:1.7;">"Our mission is to help businesses transform their ideas into successful digital products by combining technology, creativity, and innovation."</p>
+    </div>
+    <div class="glass-card reveal">
+      <h2>Our Vision</h2>
+      <p style="color:var(--text-soft); margin-top:16px; line-height:1.7;">"To become one of India's most trusted technology companies by building digital solutions that create real business growth."</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: WHAT WE DO -->
+<section class="section-pad" style="background:var(--surface)" id="services">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Services</span><h2>What We Do</h2></div>
+    <div class="services-grid">
+      <div class="service-card reveal"><h3>Website Development</h3><p>Business Websites, Landing Pages, Portfolio, Web Applications</p></div>
+      <div class="service-card reveal"><h3>UI/UX Design</h3><p>Modern, clean interfaces inspired by Apple & Stripe</p></div>
+      <div class="service-card reveal"><h3>SEO Optimization</h3><p>Rank higher and get more organic traffic</p></div>
+      <div class="service-card reveal"><h3>Speed Optimization</h3><p>Lightning fast websites under 2 seconds</p></div>
+      <div class="service-card reveal"><h3>AI Automation</h3><p>Chatbots, Lead capture, Business workflows</p></div>
+      <div class="service-card reveal"><h3>Maintenance & Support</h3><p>24/7 support and monthly growth plans</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 7: WHY CHOOSE -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Why Us</span><h2>Why Choose L4K</h2></div>
+    <div class="why-grid">
+      <div class="why-card reveal"><h4>Modern UI</h4></div><div class="why-card reveal"><h4>Fast Delivery</h4></div><div class="why-card reveal"><h4>Premium Quality</h4></div><div class="why-card reveal"><h4>Clean Code</h4></div>
+      <div class="why-card reveal"><h4>Responsive Design</h4></div><div class="why-card reveal"><h4>SEO Friendly</h4></div><div class="why-card reveal"><h4>Business Focused</h4></div><div class="why-card reveal"><h4>Affordable Pricing</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 15: COMPARISON -->
+<section class="section-pad" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Comparison</span><h2>Why Businesses Choose L4K</h2><p>We're not just another web development agency. We're your long-term technology partner.</p></div>
+    <div class="compare-grid">
+      <div class="compare-card reveal"><h3>Others</h3><ul class="compare-list"><li><span class="cross">❌</span> Generic Website Templates</li><li><span class="cross">❌</span> Slow Communication</li><li><span class="cross">❌</span> Poor User Experience</li><li><span class="cross">❌</span> No Growth Strategy</li></ul></div>
+      <div class="compare-card l4k reveal"><h3>L4K TECHNOLOGY</h3><ul class="compare-list"><li><span class="check">✅</span> 100% Custom Design</li><li><span class="check">✅</span> Fast & Transparent Communication</li><li><span class="check">✅</span> Premium UI/UX</li><li><span class="check">✅</span> Growth-Focused Strategy</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 16: OUR PROMISE -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Our Promise</span><h2>Our Commitment To You</h2></div>
+    <div class="promise-grid">
+      <div class="promise-card reveal"><div class="promise-icon">🚀</div><h3>Fast Delivery</h3><p>We respect deadlines and deliver quality projects on time.</p></div>
+      <div class="promise-card reveal"><div class="promise-icon">🎨</div><h3>Premium Design</h3><p>Modern interfaces inspired by world-class companies.</p></div>
+      <div class="promise-card reveal"><div class="promise-icon">🔒</div><h3>Secure Development</h3><p>Clean, scalable and secure code.</p></div>
+      <div class="promise-card reveal"><div class="promise-icon">🤝</div><h3>Long-Term Partnership</h3><p>We grow with your business.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 17: WHO WE WORK WITH -->
+<section class="section-pad" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">Clients</span><h2>Who We Work With</h2></div>
+    <div class="workwith-grid">
+      <div class="work-card reveal">✔ Startups</div><div class="work-card reveal">✔ Small Businesses</div><div class="work-card reveal">✔ Restaurants</div><div class="work-card reveal">✔ Hotels</div>
+      <div class="work-card reveal">✔ Gyms</div><div class="work-card reveal">✔ Schools</div><div class="work-card reveal">✔ Real Estate</div><div class="work-card reveal">✔ E-Commerce</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 11: OUR IMPACT -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head reveal"><h2>Our Impact</h2></div>
+    <div class="counters">
+      <div class="reveal"><div class="counter-num" data-target="100">0</div><p>Projects Completed</p></div>
+      <div class="reveal"><div class="counter-num" data-target="50">0</div><p>Happy Clients</p></div>
+      <div class="reveal"><div class="counter-num" data-target="20">0</div><p>Industries Served</p></div>
+      <div class="reveal"><div class="counter-num" data-target="99">0</div><p>Client Satisfaction</p></div>
+      <div class="reveal"><div class="counter-num" data-target="24">0</div><p>Support</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 13: FAQ -->
+<section class="section-pad" style="background:var(--surface)">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">FAQ</span><h2>Frequently Asked Questions</h2></div>
+    <div class="faq">
+      <div class="faq-item reveal"><div class="faq-q">How long does a website take to build?</div><div class="faq-a">Typically 2-4 weeks depending on complexity. We prioritize speed without compromising quality.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Do you provide maintenance after launch?</div><div class="faq-a">Yes, we offer monthly maintenance plans starting at ₹1,999/month including updates, backups, and support.</div></div>
+      <div class="faq-item reveal"><div class="faq-q">Will my website be mobile friendly?</div><div class="faq-a">100%. Every website we build is fully responsive and optimized for all devices.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 21: FINAL CTA -->
+<section class="cta-section reveal" id="contact">
+  <h2>Ready To Turn Your Idea Into Impact?</h2>
+  <p>Whether you're launching your first business, redesigning your brand, or building the next big startup—we're here to help you every step of the way.</p>
+  <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+    <a href="service.html" class="btn btn-primary">Start Your Project</a>
+    <a href="contact.html" class="btn btn-light">Book Free Consultation</a>
+  </div>
+  <p style="margin-top:24px; color:var(--accent-2);">⭐ Trusted by Growing Businesses</p>
+</section>
+
+<script>
+// Scroll Reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('in');
+  });
+}, {threshold:0.15});
+document.querySelectorAll('.reveal, .timeline-item').forEach(el => observer.observe(el));
+
+// Counter Animation
+const counters = document.querySelectorAll('.counter-num');
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const counter = entry.target;
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const inc = target / 100;
+      const update = () => {
+        count += inc;
+        if(count < target){ counter.innerText = Math.ceil(count); setTimeout(update, 20); }
+        else{ counter.innerText = target + (target==99 ? '%' : target==24 ? '/7' : '+'); }
+      }
+      update();
+      counterObserver.unobserve(counter);
+    }
+  });
+});
+counters.forEach(c => counterObserver.observe(c));
+
+// FAQ Accordion
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => q.parentElement.classList.toggle('active'));
+});
+</script>
+</body>
+</html>
